@@ -11,11 +11,8 @@ class Racermouse_api extends REST_Controller {
         }
 
         // $user = $this->some_model->getSomething( $this->get('id') );
-    	$users = array(
-			1 => array('id' => 1, 'name' => 'Some Guy', 'email' => 'example1@example.com',                                   'fact' => 'Loves swimming'),
-		);
-		
-    	$user = @$users[$this->get('id')];
+    	 $this->load->Model("Muser");
+        $user=$this->Muser->getById($this->get('id'));
     	
         if($user)
         {
